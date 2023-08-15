@@ -1,0 +1,48 @@
+this was in router before moving all the infor from the function to teh controller 
+
+const express = require('express');
+const router = express.Router();
+
+router.route('/')
+    .get((req, res) => {
+        res.json({
+            msg: "getting all users"
+        }); 
+    })
+    .post((req, res) => {
+        res.json({
+            msg: "create user"
+        });
+    });
+
+router.route('/:id') // Define a route parameter named 'id'
+    .get((req, res) => {
+        res.json({
+            msg: `getting user ${req.params.id}`
+        });
+    })
+    .put((req, res) => {
+        res.json({
+            msg: `update user for ${req.params.id}`
+        });
+    })
+    .delete((req, res) => {
+        res.json({
+            msg: `deleted user ${req.params.id}`
+        });
+    });
+
+module.exports = router;
+
+
+//=======================
+controller user
+    const userInfor =  {userId,
+        firstname,
+        lastName,
+        gender,
+        userDOB,
+        emailAdd,
+        userPass,
+        profileUrl};
+         userInfor = req.body
